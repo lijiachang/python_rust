@@ -24,4 +24,8 @@ setup(
         "Operating System :: MacOS :: MacOS X",
     ],
     zip_safe=False,  # rust extension is not zip safe 这也是C语言的标准
+
+    entry_points={
+        "console_scripts": ["fib-number = pyo3_example.fib_number_command:fib_number_command"],
+    }
 )

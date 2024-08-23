@@ -45,7 +45,8 @@ pip install .
 如果安装成功，您应该能够在 Python 中导入和使用这个模块了。 
 ```
 
-# python terminal verify
+# python terminal verify 测试结果
+hello
 ```text
 (venv) ➜  src git:(master) ✗ python
 Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
@@ -56,6 +57,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 saying hello from Rust~
 saying hello from Rust~
 ```
+fibonacci_number
 ```text
 (venv) ➜  src git:(master) ✗ python                     
 Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
@@ -67,6 +69,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> fibonacci_numbers([20,21,22])
 [6765, 10946, 17711]
 >>> 
+```
+通过setup.py 中定义entry_points -> console_scripts 实现为系统终端添加命令工具
+```text
+(venv) ➜  python_rust git:(master) ✗ fib-number                                                          
+usage: fib-number [-h] --number NUMBER
+fib-number: error: the following arguments are required: --number
+(venv) ➜  python_rust git:(master) ✗ fib-number --number 20
+your fibonacci number is:6765 
 ```
 
 # FAQ

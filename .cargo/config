@@ -1,9 +1,11 @@
-[target.x86_64-apple-darwin]
+[target.x86_64-apple-darwin]  # 针对 Intel 芯片的 macOS 系统。
 rustflags=[
+    # 告诉链接器允许未定义的符号: 当构建 Python 扩展时，有些符号（如 Python API 函数）在链接时可能找不到。这个配置允许这种情况，使得链接过程能够继续进行。
     "-C", "link-arg=-undefined",
+    # 启用动态符号查找: 这允许在运行时动态查找符号，而不是在编译时静态链接。这对于 Python 扩展很重要，因为扩展需要与 Python 解释器动态链接。
     "-C", "link-arg=dynamic_lookup"
 ]
-[target.aarch64-apple-darwin]
+[target.aarch64-apple-darwin] # 针对 Apple Silicon (M1/M2 等) 芯片的 macOS 系统
 rustflags=[
     "-C", "link-arg=-undefined",
     "-C", "link-arg=dynamic_lookup"

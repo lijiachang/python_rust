@@ -3,6 +3,7 @@
 * 使用PyO3 crate创建Rust接口
 
 # How to install
+Choose one of the three ways:  
 
 ## pip install
 ```

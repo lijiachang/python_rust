@@ -8,7 +8,10 @@ from setuptools_rust import Binding, RustExtension
 setup(
     name="python-rust",
     version="0.1",
+
     rust_extensions=[RustExtension(".python_rust.python_rust", path="Cargo.toml", binding=Binding.PyO3)],
+    # 第一个python_rust是rust项目的名字（Cargo.toml中定义），第二个python_rust是在lib.rs中的#[pymodule]定义的
+
     packages=["python_rust"],
     classifiers=[
         "License :: OSI Approved :: MIT License",

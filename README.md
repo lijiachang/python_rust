@@ -1,5 +1,6 @@
 # Speed Your Python with Rust: PyO3 demo
 * 使用pip打包Rust代码
+* 使用PyO3 crate创建Rust接口
 
 # How to install
 
@@ -44,7 +45,7 @@ pip install .
 如果安装成功，您应该能够在 Python 中导入和使用这个模块了。 
 ```
 
-# python
+# python terminal verify
 ```text
 (venv) ➜  src git:(master) ✗ python
 Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
@@ -54,8 +55,18 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> say_hello()
 saying hello from Rust~
 saying hello from Rust~
+```
+```text
+(venv) ➜  src git:(master) ✗ python                     
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example import fibonacci_number
+>>> from pyo3_example import fibonacci_numbers
+>>> fibonacci_number(20)
+6765
+>>> fibonacci_numbers([20,21,22])
+[6765, 10946, 17711]
 >>> 
-
 ```
 
 # FAQ

@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: python-rust
+Version: 0.1
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Rust
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X

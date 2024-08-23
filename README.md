@@ -79,6 +79,33 @@ fib-number: error: the following arguments are required: --number
 (venv) ➜  python_rust git:(master) ✗ fib-number --number 20
 your fibonacci number is:6765 
 ```
+在python控制台中测试适配器接口
+```text
+(venv) ➜  src git:(master) ✗ python                                                               
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example import FibNumberAdapter
+>>> test = FibNumberAdapter(10)
+>>> test2 = FibNumberAdapter(15)
+>>> test2.count
+2
+>>> test.count
+2
+>>> test2.success
+True
+>>> test2.result
+610
+>>> test_list = FibNumberAdapter([5,6,7,8,9])
+>>> test_list.result
+[5, 8, 13, 21, 34]
+>>> test.count
+3
+>>> test2.count
+3
+>>> test_list.count
+3
+>>> 
+```
 
 # FAQ
 

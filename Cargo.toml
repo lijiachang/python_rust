@@ -10,7 +10,7 @@ version = "0.22.2"
 features = ["extension-module"]  # 制作Rust模块
 
 [lib]
-name = "python_rust"
+name = "rust_module"
 crate-type = ["cdylib"]  # 表示要编译生成一个动态系统库（C-compatible dynamic library）C 兼容的动态库
 
 # 当编译完成后，你会得到一个可以直接在 Python 中使用的动态库文件

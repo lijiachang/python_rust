@@ -1,1 +1,1 @@
-from .python_rust import *
+from .rust_module import *

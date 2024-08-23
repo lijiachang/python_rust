@@ -1,5 +1,5 @@
 [package]
-name = "python_rust"
+name = "pyo3_example" # `name` here is name of the package.
 version = "0.1.0"
 edition = "2021"
 
@@ -10,7 +10,10 @@ version = "0.22.2"
 features = ["extension-module"]  # 制作Rust模块
 
 [lib]
-name = "rust_module"
+# The name of the native library. This is the name which will be used in Python to import the
+# library (i.e. `import string_sum`). If you change this, you must also change the name of the
+# `#[pymodule]` in `src/lib.rs`.
+name = "pyo3_example"
 crate-type = ["cdylib"]  # 表示要编译生成一个动态系统库（C-compatible dynamic library）C 兼容的动态库
 
 # 当编译完成后，你会得到一个可以直接在 Python 中使用的动态库文件

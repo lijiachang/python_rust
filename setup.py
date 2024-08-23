@@ -6,13 +6,14 @@ from setuptools import setup
 from setuptools_rust import Binding, RustExtension
 
 setup(
-    name="python-rust",
+    name="pyo3-example",
     version="0.1",
 
-    rust_extensions=[RustExtension(".python_rust.rust_module", path="Cargo.toml", binding=Binding.PyO3)],
-    # 第一个python_rust是rust项目的名字（Cargo.toml中定义），第二个python_rust是在lib.rs中的#[pymodule]定义的
+    rust_extensions=[RustExtension(".pyo3_example.pyo3_example", path="Cargo.toml", binding=Binding.PyO3)],
+    # 第一个pyo3_example是下面packages定义的名字（也是项目中的pyo3_example目录），
+    # 第二个pyo3_example是在 lib.rs 中的#[pymodule]定义的fn pyo3_example(module: &Bound<'_, PyModule>)
 
-    packages=["python_rust"],
+    packages=["pyo3_example"],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Development Status :: 3 - Alpha",

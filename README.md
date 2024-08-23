@@ -11,7 +11,7 @@ pip install git+https://github.com/lijiachang/python_rust@master
 ## python setup.py install
 ```
 pip3 install setuptools-rust
-python setup.py build && python setup.py install && python setup.py develop
+python setup.py build && python setup.py install
 ```
 
 
@@ -30,3 +30,35 @@ python setup.py build && python setup.py install && python setup.py develop
         主要用于开发过程中，因为它允许您修改源代码而不需要重新安装。
         对源代码的任何更改都会立即反映在已安装的包中。
         这种安装方式也被称为"可编辑"或"开发"模式。
+
+## pip install .
+```text
+构建 Rust 扩展：
+cargo build --release
+这会在 target/release 目录下生成一个动态库文件（.so、.dll 或 .dylib）。
+
+然后，运行以下命令来安装 Python 包：
+pip install .
+这个命令会调用 setup.py，编译 Rust 代码，并安装 Python 包。
+
+如果安装成功，您应该能够在 Python 中导入和使用这个模块了。 
+```
+
+# python
+```text
+(venv) ➜  src git:(master) ✗ python
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example import say_hello
+>>> 
+>>> say_hello()
+saying hello from Rust~
+saying hello from Rust~
+>>> 
+
+```
+
+# FAQ
+
+## ModuleNotFoundError: No module named 'pyo3_example.pyo3_example'
+不要在项目根目录（setup.py、Cargo.toml所在目录）执行python终端，因为[pyo3_example](pyo3_example)目录会冲突

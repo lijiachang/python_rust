@@ -9,7 +9,7 @@ fn say_hello() {
 
 
 #[pymodule]
-fn rust_module(module: &Bound<'_, PyModule>) -> PyResult<()> {
+fn pyo3_example(module: &Bound<'_, PyModule>) -> PyResult<()> {
     // module.add_wrapped(wrap_pyfunction!(say_hello));  // 旧版pyo3写法
     module.add_function(wrap_pyfunction!(say_hello, module)?)
 }

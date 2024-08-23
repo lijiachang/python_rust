@@ -9,7 +9,7 @@ setup(
     name="python-rust",
     version="0.1",
     rust_extensions=[RustExtension(".python_rust.python_rust", binding=Binding.PyO3)],
-    packages=["python_rust"],
+    packages=["python_rust_package"],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Development Status :: 3 - Alpha",

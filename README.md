@@ -3,5 +3,5 @@
 
 # How to install
 ```
-pip install git+https://github.com/maxwellflitton/flitton-fib-rs@main
+pip install git+https://github.com/lijiachang/python_rust@master
 ```

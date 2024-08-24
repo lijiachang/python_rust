@@ -12,3 +12,26 @@ pub fn fibonacci_number(n: i32) -> u64 {
         _ => fibonacci_number(n - 1) + fibonacci_number(n - 2)
     }
 }
+
+#[cfg(test)]
+mod fibonacci_number_tests{
+    use super::fibonacci_number;
+
+    #[test]
+    fn test_one() {
+        assert_eq!(fibonacci_number(1), 1)
+    }
+    #[test]
+    fn test_two() {
+        assert_eq!(fibonacci_number(2), 1)
+    }
+    #[test]
+    fn test_three() {
+        assert_eq!(fibonacci_number(3), 2)
+    }
+    #[test]
+    #[should_panic]
+    fn test_negative() {
+        fibonacci_number(-100);
+    }
+}

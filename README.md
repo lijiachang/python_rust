@@ -1,6 +1,7 @@
 # Speed Your Python with Rust: PyO3 demo
 * 使用pip打包Rust代码
 * 使用PyO3 crate创建Rust接口
+* 为Rust包构建测试
 
 # How to install
 Choose one of the three ways:  
@@ -37,7 +38,8 @@ python setup.py build && python setup.py install
 ```text
 构建 Rust 扩展：
 cargo build --release
-这会在 target/release 目录下生成一个动态库文件（.so、.dll 或 .dylib）。
+这会在 target/release 目录下生成一个动态库文件（.so、.dll 或 .dylib）
+在 Windows 上是 .dll，在 macOS 上是 .dylib，在 Linux 上是 .so
 
 然后，运行以下命令来安装 Python 包：
 pip install .

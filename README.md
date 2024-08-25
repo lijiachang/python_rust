@@ -1,7 +1,12 @@
 # Speed Your Python with Rust: PyO3 demo
+## 为pip模块构建Rust接口
 * 使用pip打包Rust代码
 * 使用PyO3 crate创建Rust接口
 * 为Rust包构建测试
+## 在Rust中使用python对象
+* 将复杂的python对象传递到Rust中
+* 检查和使用自定义python对象
+* 在Rust中构建自定义python对象
 
 # How to install
 Choose one of the three ways:  

@@ -26,6 +26,12 @@ setup(
     zip_safe=False,  # rust extension is not zip safe 这也是C语言的标准
 
     entry_points={
-        "console_scripts": ["fib-number = pyo3_example.fib_number_command:fib_number_command"],
-    }
+        "console_scripts": [
+            "fib-number = pyo3_example.fib_number_command:fib_number_command",
+            "config-fib = pyo3_example.config_number_command:config_number_command",
+        ],
+    },
+    requirements=[
+      "pyyaml>=3.13",
+    ]
 )

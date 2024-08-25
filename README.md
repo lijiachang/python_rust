@@ -1,4 +1,6 @@
 # Speed Your Python with Rust: PyO3 demo
+项目使用PyO3最新版本：0.22.2  
+
 ## 为pip模块构建Rust接口
 * 使用pip打包Rust代码
 * 使用PyO3 crate创建Rust接口
@@ -114,6 +116,24 @@ True
 >>> 
 ```
 
+将复杂的python对象传递到Rust中,  
+config_number_command示例，读取yaml文件，转换为dict，传递给Rust处理
+```text
+(venv) ➜  src git:(master) ✗ pip install pyyaml
+...
+
+(venv) ➜  src git:(master) ✗ pwd                                                                  
+/Users/lijiachang/code/rust/python_rust/src
+
+(venv) ➜  src git:(master) ✗ config-fib --path ../example.yml
+config data:
+{'number': [4, 7, 2], 'numbers': [[12, 15, 20], [15, 19, 18]]}
+the result:
+{'NUMBER RESULT': [3, 13, 1],
+ 'NUMBERS RESULT': [[144, 610, 6765], [610, 4181, 2584]],
+ 'number': [4, 7, 2],
+ 'numbers': [[12, 15, 20], [15, 19, 18]]}
+```
 # FAQ
 
 ## ModuleNotFoundError: No module named 'pyo3_example.pyo3_example'

@@ -136,7 +136,7 @@ the result:
  'numbers': [[12, 15, 20], [15, 19, 18]]}
 ```
 
-使用自定义Python对象
+检查和使用自定义python对象  
 ```text
 (venv) ➜  src git:(master) ✗ python                                                               
 Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
@@ -146,6 +146,29 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> test.process()
 >>> test.number_results
 [5, 8, 13, 21]
+>>> 
+
+```
+
+在Rust中构建自定义python对象  
+可以看到Rust对象可在python系统中无缝的工作
+```text
+(venv) ➜  src git:(master) ✗ python
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example import FibProcessor
+>>> test = FibProcessor([11,12,13,14], [[11,12], [13,14], [15,16]])
+>>> test.numbers_results
+[[89, 144], [233, 377], [610, 987]]
+>>> 
+>>> test.numbers_results = "write"  # 报错是因为只读
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: attribute 'numbers_results' of 'builtins.FibProcessor' objects is not writable
+>>> 
+>>> test.number = [1,2]  # 可读写
+>>> test.number
+[1, 2]
 >>> 
 
 ```

@@ -24,6 +24,7 @@ fn pyo3_example(module: &Bound<'_, PyModule>) -> PyResult<()> {
     let _ = module.add_function(wrap_pyfunction!(fib_calcs::fib_numbers::fibonacci_numbers, module)?);
 
     let _ = module.add_function(wrap_pyfunction!(interface::config::run_config, module)?);
+    let _ = module.add_function(wrap_pyfunction!(interface::object::object_interface, module)?);
 
     Ok(())
 }

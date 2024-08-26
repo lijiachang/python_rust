@@ -135,6 +135,21 @@ the result:
  'number': [4, 7, 2],
  'numbers': [[12, 15, 20], [15, 19, 18]]}
 ```
+
+使用自定义Python对象
+```text
+(venv) ➜  src git:(master) ✗ python                                                               
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example import ObjectInterface
+>>> test = ObjectInterface([5,6,7,8], [])
+>>> test.process()
+>>> test.number_results
+[5, 8, 13, 21]
+>>> 
+
+```
+
 # FAQ
 
 ## ModuleNotFoundError: No module named 'pyo3_example.pyo3_example'

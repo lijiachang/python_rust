@@ -1,15 +1,43 @@
 # Speed Your Python with Rust: PyO3 demo
 项目使用PyO3最新版本：0.22.2  
+新版的PyO3除了一些用法的改变，在新版本中引入了 Bound 的概念：
+
+    Bound 是一个新的智能指针类型，用于表示与特定 Python 解释器生命周期绑定的 Python 对象。这个改变的主要目的是提高类型安全性和明确所有权。
+
+    导入方式的变化：
+
+    旧版：py.import("numpy")
+    新版：py.import_bound("numpy")
+
+    新版本返回一个 Bound 对象，这更明确地表示了导入的模块与当前 Python 解释器实例的关系。
+
+    函数签名的变化：
+
+    旧版：pub fn run_config<'a>(config: &'a PyDict) -> PyResult<&'a PyDict>
+    新版：pub fn run_config<'a>(config: &Bound<'a, PyDict>) -> PyResult<Bound<'a, PyDict>>
+
+    这个变化使得函数签名更明确地表达了 Python 对象的生命周期和所有权。
+
+    优势：
+        更好的类型安全：Bound 可以在编译时捕获更多的潜在错误。
+        明确的生命周期：使得 Rust 的借用检查器能更好地理解 Python 对象的生命周期。
+        更好的所有权模型：让 Rust 代码更容易推理 Python 对象的所有权和生命周期。
+
 
 ## 为pip模块构建Rust接口
 * 使用pip打包Rust代码
 * 使用PyO3 crate创建Rust接口
 * 为Rust包构建测试
 
-## 在Rust中使用python对象
+## 在Rust中使用Python对象
 * 将复杂的python对象传递到Rust中
 * 检查和使用自定义python对象
 * 在Rust中构建自定义python对象
+
+## 在Rust中使用Python模块
+* 在NumPy中构建模型
+* 在Rust中使用NumPy和其他Python模块
+* 在Rust中重建NumPy模型
 
 # How to install
 Choose one of the three ways:  
@@ -169,6 +197,19 @@ AttributeError: attribute 'numbers_results' of 'builtins.FibProcessor' objects i
 >>> test.number = [1,2]  # 可读写
 >>> test.number
 [1, 2]
+>>> 
+
+```
+
+在Rust中使用NumPy模块  
+```text
+(venv) ➜  src git:(master) ✗ python                                                               
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example import test_numpy
+>>> outcome = test_numpy({})
+>>> outcome["numpy result"].transpose()
+array([[70, 90]])
 >>> 
 
 ```

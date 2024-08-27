@@ -18,7 +18,7 @@ fn process_numbers(input_numbers: Vec<Vec<i32>>) -> Vec<Vec<u64>> {
 
 
 #[pyfunction]
-pub fn run_config<'a>(config: &Bound<'a, PyDict>) -> PyResult<Bound<'a, PyDict>> {
+pub fn run_config<'a>(config: &'a Bound<'a, PyDict>) -> PyResult<&'a Bound<'a, PyDict>> {
     // 处理number键
     match config.get_item("number")? {
         Some(data) => {
@@ -49,5 +49,5 @@ pub fn run_config<'a>(config: &Bound<'a, PyDict>) -> PyResult<Bound<'a, PyDict>>
         None => println!("parameter [numbers] is not in config")
     }
 
-    Ok(config.clone())
+    Ok(config)
 }

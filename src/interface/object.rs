@@ -5,18 +5,18 @@ use pyo3::exceptions::PyLookupError;
 use super::config::run_config;
 
 #[pyfunction]
-pub fn object_interface<'a>(input_object: &Bound<'a, PyAny>) -> PyResult<Bound<'a, PyAny>> {
+pub fn object_interface<'a>(input_object: &'a Bound<'a, PyAny>) -> PyResult<&'a Bound<'a, PyAny>> {
     Python::with_gil(|py| {
         let mut config_dict: Bound<'_, PyDict> = PyDict::new_bound(py);
         extract_data(input_object, "number", &mut config_dict)?;
         extract_data(input_object, "numbers", &mut config_dict)?;
 
-        let output_dict: Bound<PyDict> = run_config(&config_dict)?; // 交给旧函数run_config处理
+        let output_dict: &Bound<PyDict> = run_config(&config_dict)?; // 交给旧函数run_config处理
 
         input_object.setattr("number_results", output_dict.get_item("NUMBER RESULT")?)?;
         input_object.setattr("numbers_results", output_dict.get_item("NUMBERS RESULT")?)?;
 
-        Ok(input_object.clone())
+        Ok(input_object)
     })
 }
 

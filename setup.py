@@ -33,5 +33,6 @@ setup(
     },
     requirements=[
       "pyyaml>=3.13",
+      "numpy",
     ]
 )

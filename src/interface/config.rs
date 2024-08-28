@@ -40,7 +40,7 @@ pub fn run_config<'a>(config: &'a Bound<'a, PyDict>) -> PyResult<&'a Bound<'a, P
         Some(data) => {
             match data.downcast::<PyList>() {
                 Ok(raw_data) => {
-                    let processed_results_two: Vec<Vec<i32>> = raw_data.extract::<Vec<Vec<i32>>>().unwrap();
+                    let processed_results_two: Vec<Vec<i32>> = raw_data.extract::<Vec<Vec<i32>>>()?;
                     config.set_item("NUMBERS RESULT", process_numbers(processed_results_two))?
                 }
                 Err(_) => Err(PyTypeError::new_err("parameter numbers is not a list of of lists of int"))?

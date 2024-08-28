@@ -214,6 +214,20 @@ array([[70, 90]])
 
 ```
 
+在Rust中重建NumPy模型  
+```text
+(venv) ➜  src git:(master) ✗ python                                                               
+Python 3.10.11 (v3.10.11:7d4cc5aa85, Apr  4 2023, 19:05:19) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from pyo3_example.numpy_interface import NumpyInterface
+>>> test = NumpyInterface()
+>>> test.calc_times(10, 20)
+>>> test.calc_parameters(70, 90)
+>>> 
+>>> test.inventory
+{'car time': np.int64(70), 'trunk time': np.int64(90), 'distance': np.float64(9.999999999999998), 'traffic grade': np.float64(20.0)}
+>>> 
+```
 # FAQ
 
 ## ModuleNotFoundError: No module named 'pyo3_example.pyo3_example'

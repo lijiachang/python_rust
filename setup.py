@@ -13,7 +13,7 @@ setup(
     # 第一个pyo3_example是下面packages定义的名字（也是项目中的pyo3_example目录），
     # 第二个pyo3_example是在 lib.rs 中的#[pymodule]定义的fn pyo3_example(module: &Bound<'_, PyModule>)
 
-    packages=["pyo3_example"],
+    packages=["pyo3_example", "oasis_risk_modelling"],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Development Status :: 3 - Alpha",
@@ -34,5 +34,9 @@ setup(
     requirements=[
       "pyyaml>=3.13",
       "numpy",
-    ]
+    ],
+
+    # pip 携带数据文件
+    include_package_data=True,
+    package_data={"": ["*.csv"]},
 )

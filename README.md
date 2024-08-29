@@ -39,6 +39,10 @@
 * 在Rust中使用NumPy和其他Python模块
 * 在Rust中重建NumPy模型
 
+## 在Rust中构建端到端(End-to-End)Python模块
+* 将端到端(End-to-End)解决方案构建为一个包
+* 使用和测试包
+
 # How to install
 Choose one of the three ways:  
 
@@ -226,6 +230,16 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 >>> test.inventory
 {'car time': np.int64(70), 'trunk time': np.int64(90), 'distance': np.float64(9.999999999999998), 'traffic grade': np.float64(20.0)}
+>>> 
+```
+
+将端到端(End-to-End)解决方案构建为一个包  
+在Rust中建立一个（灾难）模型，然后在Python中使用它  
+```text
+>>> from oasis_risk_modelling import construct_model
+>>> construct_model([1,2])
+/Users/lijiachang/code/rust/python_rust/venv/lib/python3.10/site-packages/oasis_risk_modelling
+[{'vulnerability_id': 1, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.44999998807907104, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.4699999988079071, 'total_probability': 0.21149998903274536}, {'vulnerability_id': 1, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.44999998807907104, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.30000001192092896, 'total_probability': 0.13500000536441803}, {'vulnerability_id': 1, 'intensity_bin_id': 2, 'damage_bin_id': 2, 'damage_probability': 0.6499999761581421, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.5299999713897705, 'total_probability': 0.34449997544288635}, {'vulnerability_id': 1, 'intensity_bin_id': 2, 'damage_bin_id': 2, 'damage_probability': 0.6499999761581421, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.699999988079071, 'total_probability': 0.45499998331069946}, {'vulnerability_id': 3, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.8899999856948853, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.4699999988079071, 'total_probability': 0.41830000281333923}, {'vulnerability_id': 3, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.8899999856948853, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.30000001192092896, 'total_probability': 0.2670000195503235}, {'vulnerability_id': 4, 'intensity_bin_id': 2, 'damage_bin_id': 1, 'damage_probability': 0.3499999940395355, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.5299999713897705, 'total_probability': 0.18549998104572296}, {'vulnerability_id': 4, 'intensity_bin_id': 2, 'damage_bin_id': 1, 'damage_probability': 0.3499999940395355, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.699999988079071, 'total_probability': 0.2449999898672104}]
 >>> 
 ```
 # FAQ

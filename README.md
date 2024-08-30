@@ -242,6 +242,19 @@ Type "help", "copyright", "credits" or "license" for more information.
 [{'vulnerability_id': 1, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.44999998807907104, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.4699999988079071, 'total_probability': 0.21149998903274536}, {'vulnerability_id': 1, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.44999998807907104, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.30000001192092896, 'total_probability': 0.13500000536441803}, {'vulnerability_id': 1, 'intensity_bin_id': 2, 'damage_bin_id': 2, 'damage_probability': 0.6499999761581421, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.5299999713897705, 'total_probability': 0.34449997544288635}, {'vulnerability_id': 1, 'intensity_bin_id': 2, 'damage_bin_id': 2, 'damage_probability': 0.6499999761581421, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.699999988079071, 'total_probability': 0.45499998331069946}, {'vulnerability_id': 3, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.8899999856948853, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.4699999988079071, 'total_probability': 0.41830000281333923}, {'vulnerability_id': 3, 'intensity_bin_id': 1, 'damage_bin_id': 1, 'damage_probability': 0.8899999856948853, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.30000001192092896, 'total_probability': 0.2670000195503235}, {'vulnerability_id': 4, 'intensity_bin_id': 2, 'damage_bin_id': 1, 'damage_probability': 0.3499999940395355, 'event_id': 1, 'areaperil_id': 10, 'footprint_probability': 0.5299999713897705, 'total_probability': 0.18549998104572296}, {'vulnerability_id': 4, 'intensity_bin_id': 2, 'damage_bin_id': 1, 'damage_probability': 0.3499999940395355, 'event_id': 2, 'areaperil_id': 20, 'footprint_probability': 0.699999988079071, 'total_probability': 0.2449999898672104}]
 >>> 
 ```
+
+使用和测试包
+1. 使用pandas重新构建Python版本的构造模型
+2. 随机时间ID生成器函数
+3. 用一系列不同的数据来对比Python和Rust的计时测试
+```text
+cd oasis_risk_modelling                                              
+python test_model_python_vs_rust.py 
+```
+![img.png](img.png)  
+可以看到，刚开始的时候Rust实现比Python pandas会更快。但是后面会比pandas慢。  
+因为我们写的rust代码不能很好的拓展，只是在循环中执行循环。而在pandas中，则总是将总概率向量化。
+
 # FAQ
 
 ## ModuleNotFoundError: No module named 'pyo3_example.pyo3_example'

@@ -43,6 +43,10 @@
 * 将端到端(End-to-End)解决方案构建为一个包
 * 使用和测试包
 
+## 将Rust注入Web应用程序
+项目在另一个仓库中  
+https://github.com/lijiachang/flask_with_rust
+
 # How to install
 Choose one of the three ways:  
 
